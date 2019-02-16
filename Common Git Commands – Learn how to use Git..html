@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)http://guides.beanstalkapp.com/version-control/common-git-commands.html -->
+<html lang="en" itemscope="" itemtype="http://schema.org/Article" class="wf-ronniacondensed1-n4-active wf-ronniacondensed1-n6-active wf-active"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>Common Git Commands – Learn how to use Git.</title>
+	<link rel="canonical" href="http://guides.beanstalkapp.com/version-control/common-git-commands.html">
+	<meta itemprop="articleSection" content="An introduction to Git Commands.">
+	<meta name="description" itemprop="description" content="An introduction to Git Commands.">
+	<meta name="viewport" content="width=940">
+
+	<!--[if lt IE 9]><script src="../javascripts/html5shiv.js"></script><![endif]-->
+
+	<link rel="stylesheet" href="./Common Git Commands – Learn how to use Git._files/global.css" media="all">
+
+	<!--[if IE 8]><link rel="stylesheet" href="../stylesheets/ie8.css" media="all"><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="../stylesheets/ie7.css" media="all"><![endif]-->
+
+	<script src="./Common Git Commands – Learn how to use Git._files/all.js.download" async=""></script><script id="facebook-jssdk" src="./Common Git Commands – Learn how to use Git._files/all.js(1).download"></script><script type="text/javascript" async="" src="./Common Git Commands – Learn how to use Git._files/linkid.js.download"></script><script src="./Common Git Commands – Learn how to use Git._files/295344307493628" async=""></script><script async="" src="./Common Git Commands – Learn how to use Git._files/fbevents.js.download"></script><script type="text/javascript" async="" src="./Common Git Commands – Learn how to use Git._files/analytics.js.download"></script><script async="" src="./Common Git Commands – Learn how to use Git._files/gtm.js.download"></script><script src="./Common Git Commands – Learn how to use Git._files/ahh5why.js.download"></script>
+	<style type="text/css">.tk-ronnia-condensed{font-family:"ronnia-condensed-1","ronnia-condensed-2",sans-serif;}</style><style type="text/css">@font-face{font-family:ronnia-condensed-1;src:url(https://use.typekit.net/af/1350a7/0000000000000000000141c5/27/l?subset_id=2&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/1350a7/0000000000000000000141c5/27/d?subset_id=2&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/1350a7/0000000000000000000141c5/27/a?subset_id=2&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:ronnia-condensed-1;src:url(https://use.typekit.net/af/6688bf/0000000000000000000141c7/27/l?subset_id=2&fvd=n6&v=3) format("woff2"),url(https://use.typekit.net/af/6688bf/0000000000000000000141c7/27/d?subset_id=2&fvd=n6&v=3) format("woff"),url(https://use.typekit.net/af/6688bf/0000000000000000000141c7/27/a?subset_id=2&fvd=n6&v=3) format("opentype");font-weight:600;font-style:normal;}</style><script>try{Typekit.load();}catch(e){}</script>
+
+	<link rel="shortcut icon" href="http://beanstalkapp.com/images/favicon.ico">
+<script charset="utf-8" src="./Common Git Commands – Learn how to use Git._files/button.dd024c345fc26f7c7a8d9938b67e5d3d.js.download"></script><link id="avast_os_ext_custom_font" href="chrome-extension://eofcbnmajmjmplflapaojjnihcjkigck/common/ui/fonts/fonts.css" rel="stylesheet" type="text/css"><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#1d3c78;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}</style></head>
+
+<body>
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PXZVN2"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PXZVN2');</script>
+<!-- End Google Tag Manager -->
+
+<header>
+
+	<h1><a href="http://guides.beanstalkapp.com/">Beanstalk Guides</a></h1>
+
+	<nav>
+		<ul>
+			<li id="n-guides">
+				<a href="http://guides.beanstalkapp.com/">Guides</a>
+			</li>
+			<li id="n-beanstalk">
+				<a href="http://beanstalkapp.com/">Try Beanstalk</a>
+			</li>
+		</ul>
+	</nav>
+
+</header>
+
+<div class="page">
+
+	<section id="version-control" class="first">
+		<div class="wrapper">
+
+			<article>
+				<div class="container">
+
+				<header>
+					<h1 itemprop="name">Common Git Commands</h1>
+				</header>
+
+				<div class="share">
+					<div class="fb-like fb_iframe_widget" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;container_width=60&amp;href=http%3A%2F%2Fguides.beanstalkapp.com%2Fversion-control%2Fcommon-git-commands.html&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=90"><span style="vertical-align: bottom; width: 66px; height: 20px;"><iframe name="f2ee4afaedb3778" width="90px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" title="fb:like Facebook Social Plugin" src="./Common Git Commands – Learn how to use Git._files/like.html" style="border: none; visibility: visible; width: 66px; height: 20px;" __idm_frm__="2124" class=""></iframe></span></div>
+					<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 60px; height: 20px;" title="Twitter Tweet Button" src="./Common Git Commands – Learn how to use Git._files/tweet_button.68dbfddc56b3f0522044700c1abcd1dc.en.html" __idm_frm__="2119"></iframe>
+				</div>
+
+				<h2 class="toc">Table of Contents<a href="http://guides.beanstalkapp.com/version-control/common-git-commands.html#" title="Show detailed TOC" class="switcher">Toggle</a></h2>
+
+				<ul class="toc">
+					<li>
+						<a href="http://guides.beanstalkapp.com/version-control/common-git-commands.html#local">Working with local repositories</a>
+						<ul>
+							<li><a href="http://guides.beanstalkapp.com/version-control/common-git-commands.html#git-init">git init</a></li>
+							<li><a href="http://guides.beanstalkapp.com/version-control/common-git-commands.html#git-add">git add</a></li>
+							<li><a href="http://guides.beanstalkapp.com/version-control/common-git-commands.html#git-commit">git commit</a></li>
+							<li><a href="http://guides.beanstalkapp.com/version-control/common-git-commands.html#git-status">git status</a></li>
+							<li><a href="http://guides.beanstalkapp.com/version-control/common-git-commands.html#git-config">git config</a></li>
+							<li><a href="http://guides.beanstalkapp.com/version-control/common-git-commands.html#git-branch">git branch</a></li>
+							<li><a href="http://guides.beanstalkapp.com/version-control/common-git-commands.html#git-checkout">git checkout</a></li>
+							<li><a href="http://guides.beanstalkapp.com/version-control/common-git-commands.html#git-merge">git merge</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="http://guides.beanstalkapp.com/version-control/common-git-commands.html#remote">Working with remote repositories</a>
+						<ul>
+							<li><a href="http://guides.beanstalkapp.com/version-control/common-git-commands.html#git-remote">git remote</a></li>
+							<li><a href="http://guides.beanstalkapp.com/version-control/common-git-commands.html#git-clone">git clone</a></li>
+							<li><a href="http://guides.beanstalkapp.com/version-control/common-git-commands.html#git-pull">git pull</a></li>
+							<li><a href="http://guides.beanstalkapp.com/version-control/common-git-commands.html#git-push">git push</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="http://guides.beanstalkapp.com/version-control/common-git-commands.html#advanced">Advanced Git Commands</a>
+						<ul>
+							<li><a href="http://guides.beanstalkapp.com/version-control/common-git-commands.html#git-stash">git stash</a></li>
+							<li><a href="http://guides.beanstalkapp.com/version-control/common-git-commands.html#git-log">git log</a></li>
+							<li><a href="http://guides.beanstalkapp.com/version-control/common-git-commands.html#git-rm">git rm</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="http://guides.beanstalkapp.com/version-control/common-git-commands.html#more-git-resources">More Git Resources</a>
+					</li>
+				</ul>
+				<div itemprop="articleBody">
+
+<div class="section-block" style="background: #FFFFFF;"><img src="./Common Git Commands – Learn how to use Git._files/git-toolbox.png" alt="this guide is a Git toolbox" width="426" height="322"></div>
+
+<p>Working with Git on the command line can be daunting. To help with that, we’ve put together a list of common Git commands, what each one means, and how to use them. Our hope is that this makes Git easier to use on a daily basis.</p>
+
+<p>Git has many great <a href="http://support.beanstalkapp.com/article/834-choosing-your-git-client">clients</a> that allow you to use Git without the command line. Knowing what actions the client is performing in the background is beneficial to understanding how Git works. If you’re getting started with Git also check out our fantastic guide on the <a href="http://guides.beanstalkapp.com/version-control/getting-started-with-git.html">topic</a>.</p>
+
+<h2 id="local">Working with local repositories</h2>
+
+
+<h3 id="git-init">git init</h3>
+
+<p>This command turns a directory into an empty Git repository. This is the first step in creating a repository. After running git init, adding and committing files/directories is possible.</p>
+
+<p>Usage:</p>
+
+<pre class="sample"><code># change directory to codebase
+$ cd /file/path/to/code
+
+# make directory a git repository
+$ git init</code></pre>
+
+<p>In Practice:</p>
+
+<pre class="sample"><code># change directory to codebase
+$ cd /Users/computer-name/Documents/website
+
+# make directory a git repository
+$ git init
+Initialized empty Git repository in /Users/computer-name/Documents/website/.git/</code></pre>
+
+
+<h3 id="git-add">git add</h3>
+
+<p>Adds files in the to the staging area for Git. Before a file is available to  commit to a repository, the file needs to be added to the Git index (staging area). There are a few different ways to use git add, by adding entire directories, specific files, or all unstaged files.</p>
+
+<p>Usage:</p>
+
+<pre class="sample"><code>$ git add &lt;file or directory name&gt;</code></pre>
+
+<p>In Practice:</p>
+
+<pre class="sample"><code># To add all files not staged:
+$ git add .
+
+# To stage a specific file:
+$ git add index.html
+
+# To stage an entire directory:
+$ git add css</code></pre>
+
+<h3 id="git-commit">git commit</h3>
+
+<p>Record the changes made to the files to a local repository. For easy reference, each commit has a unique ID.</p>
+
+<p>It’s best practice to include a message with each commit explaining the changes made in a commit. Adding a commit message helps to find a particular change or understanding the changes.</p>
+
+<p>Usage:</p>
+
+<pre class="sample"><code># Adding a commit with message
+$ git commit -m "Commit message in quotes"</code></pre>
+
+<p>In Practice:</p>
+
+<pre class="sample"><code>$ git commit -m "My first commit message"
+[SecretTesting 0254c3d] My first commit message
+1 file changed, 0 insertions(+), 0 deletions(-)
+create mode 100644 homepage/index.html</code></pre>
+
+<h3 id="git-status">git status</h3>
+
+<p>This command returns the current state of the repository.</p>
+
+<p><em>git status</em> will return the current working branch. If a file is in the staging area, but not committed, it shows with <em>git status</em>. Or, if there are no changes it’ll return <em>nothing to commit, working directory clean.</em></p>
+
+<p>Usage:</p>
+
+<pre class="sample"><code>$ git status</code></pre>
+
+<p>In Practice:</p>
+
+<pre class="sample"><code># Message when files have not been staged (git add)
+$ git status
+On branch SecretTesting
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+
+  	<span class="redtext">homepage/index.html</span>
+
+# Message when files have been not been committed (git commit)
+$ git status
+On branch SecretTesting
+Your branch is up-to-date with 'origin/SecretTesting'.
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+        <span class="greentext">new file:   homepage/index.html</span>
+
+# Message when all files have been staged and committed 
+$ git status
+On branch SecretTesting
+nothing to commit, working directory clean</code></pre>
+
+<h3 id="git-config">git config</h3>
+
+<p>With Git, there are many configurations and settings possible. <em>git config</em> is how to assign these settings. Two important settings are user user.name and user.email. These values set what email address and name commits will be from on a local computer. With <em>git config</em>, a <em>--global</em> flag is used to write the settings to all repositories on a computer. Without a <em>--global</em> flag settings will only apply to the current repository that you are currently in.</p>
+
+<p>There are many other variables available to edit in <em>git config</em>. From editing color outputs to changing the behavior of <em>git status</em>. Learn about <em>git config</em> settings in the official <a href="https://git-scm.com/docs/git-config">Git documentation</a>.</p>
+
+<p>Usage:</p>
+
+<pre class="sample"><code>$ git config &lt;setting&gt; &lt;command&gt;</code></pre>
+
+<p>In Practice:</p>
+
+<pre class="sample"><code># Running git config globally
+$ git config --global user.email "my@emailaddress.com"
+$ git config --global user.name "Brian Kerr"
+
+# Running git config on the current repository settings
+$ git config user.email "my@emailaddress.com"
+$ git config user.name "Brian Kerr"</code></pre>
+
+<h3 id="git-branch">git branch</h3>
+
+<p>To determine what branch the local repository is on, add a new branch, or delete a branch.</p>
+
+<p>Usage:</p>
+
+<pre class="sample"><code># Create a new branch
+$ git branch &lt;branch_name&gt;
+
+# List all remote or local branches
+$ git branch -a
+
+# Delete a branch
+$ git branch -d &lt;branch_name&gt;</code></pre>
+
+<p>In Practice:</p>
+
+<pre class="sample"><code># Create a new branch
+$ git branch new_feature
+
+# List branches
+$ git branch -a
+* <span class="greentext">SecretTesting</span>
+  new_feature
+  remotes/origin/stable
+  remotes/origin/staging
+  remotes/origin/master -&gt; origin/SecretTesting
+  
+# Delete a branch
+$ git branch -d new_feature
+Deleted branch new_feature (was 0254c3d).</code></pre>
+
+<h3 id="git-checkout">git checkout</h3>
+
+<p>To start working in a different branch, use <em>git checkout</em> to switch branches.</p>
+
+<p>Usage:</p>
+
+<pre class="sample"><code># Checkout an existing branch
+$ git checkout &lt;branch_name&gt;
+
+# Checkout and create a new branch with that name
+$ git checkout -b &lt;new_branch&gt;</code></pre>
+
+<p>In Practice:</p>
+
+<pre class="sample"><code># Switching to branch 'new_feature'
+$ git checkout new_feature
+Switched to branch 'new_feature'
+
+# Creating and switching to branch 'staging'
+$ git checkout -b staging
+Switched to a new branch 'staging'</code></pre>
+
+<h3 id="git-merge">git merge</h3>
+
+<p>Integrate branches together. <em>git merge</em> combines the changes from one branch to another branch. For example, merge the changes made in a staging branch into the stable branch.</p>
+
+<p>Usage:</p>
+
+<pre class="sample"><code># Merge changes into current branch
+$ git merge &lt;branch_name&gt;</code></pre>
+
+<p>In Practice:</p>
+
+<pre class="sample"><code># Merge changes into current branch
+$ git merge new_feature
+Updating 0254c3d..4c0f37c
+Fast-forward
+ homepage/index.html | 297 <span class="greentext">++++++++++++++++++++++++++++++++++++++++++++++++++++++++</span>
+ 1 file changed, 297 insertions(+)
+ create mode 100644 homepage/index.html</code></pre>
+
+<h2 id="remote">Working with remote repositories</h2>
+
+
+<h3 id="git-remote">git remote</h3>
+
+<p>To connect a local repository with a remote repository. A remote repository can have a name set to avoid having to remember the URL of the repository.</p>
+
+<p>Usage:</p>
+
+<pre class="sample"><code># Add remote repository
+$ git remote &lt;command&gt; &lt;remote_name&gt; &lt;remote_URL&gt;
+
+# List named remote repositories
+$ git remote -v</code></pre>
+
+<p>In Practice:</p>
+
+<pre class="sample"><code># Adding a remote repository with the name of beanstalk
+$ git remote add origin git@account_name.git.beanstalkapp.com:/acccount_name/repository_name.git
+
+# List named remote repositories
+$ git remote -v
+origin git@account_name.git.beanstalkapp.com:/acccount_name/repository_name.git (fetch)
+origin git@account_name.git.beanstalkapp.com:/acccount_name/repository_name.git (push)</code></pre>
+
+<p><em>Note: A remote repository can have any name. It’s common practice to name the remote repository ‘origin’.</em></p>
+
+<h3 id="git-clone">git clone</h3>
+
+<p>To create a local working copy of an existing remote repository, use <em>git clone</em> to copy and download the repository to a computer. Cloning is the equivalent of <em>git init</em> when working with a remote repository. Git will create a directory locally with all files and repository history.</p>
+
+<p>Usage:</p>
+
+<pre class="sample"><code>$ git clone &lt;remote_URL&gt;</code></pre>
+
+<p>In Practice:</p>
+
+<pre class="sample"><code>$ git clone git@account_name.git.beanstalkapp.com:/acccount_name/repository_name.git
+Cloning into 'repository_name'...
+remote: Counting objects: 5, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 5 (delta 0), reused 0 (delta 0)
+Receiving objects: 100% (5/5), 3.08 KiB | 0 bytes/s, done.
+Checking connectivity... done.</code></pre>
+
+<h3 id="git-pull">git pull</h3>
+
+<p>To get the latest version of a repository run <em>git pull</em>. This pulls the changes from the remote repository to the local computer.</p>
+
+<p>Usage:</p>
+
+<pre class="sample"><code>$ git pull &lt;branch_name&gt; &lt;remote_URL/remote_name&gt;</code></pre>
+
+<p>In Practice:</p>
+
+<pre class="sample"><code># Pull from named remote
+$ git pull origin staging
+From account_name.git.beanstalkapp.com:/account_name/repository_name
+ * branch            staging    -&gt; FETCH_HEAD
+ * [new branch]      staging    -&gt; origin/staging
+Already up-to-date.
+
+# Pull from URL (not frequently used)
+$ git pull git@account_name.git.beanstalkapp.com:/acccount_name/repository_name.git staging
+From account_name.git.beanstalkapp.com:/account_name/repository_name
+ * branch            staging    -&gt; FETCH_HEAD
+ * [new branch]      staging    -&gt; origin/staging
+Already up-to-date.</code></pre>
+
+<h3 id="git-push">git push</h3>
+
+<p>Sends local commits to the remote repository. <em>git push</em> requires two parameters: the remote repository and the branch that the push is for.</p>
+
+<p>Usage:</p>
+
+<pre class="sample"><code>$ git push &lt;remote_URL/remote_name&gt; &lt;branch&gt;
+
+# Push all local branches to remote repository
+$ git push —all</code></pre>
+
+<p>In Practice:</p>
+
+<pre class="sample"><code># Push a specific branch to a remote with named remote
+$ git push origin staging
+Counting objects: 5, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (5/5), 734 bytes | 0 bytes/s, done.
+Total 5 (delta 2), reused 0 (delta 0)
+To git@account_name.git.beanstalkapp.com:/acccount_name/repository_name.git
+   ad189cb..0254c3d  SecretTesting -&gt; SecretTesting
+
+# Push all local branches to remote repository
+$ git push --all
+Counting objects: 4, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 373 bytes | 0 bytes/s, done.
+Total 4 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To git@account_name.git.beanstalkapp.com:/acccount_name/repository_name.git
+   0d56917..948ac97  master -&gt; master
+   ad189cb..0254c3d  SecretTesting -&gt; SecretTesting</code></pre>
+
+<h2 id="advanced">Advanced Git Commands</h2>
+
+<h3 id="git-stash">git stash</h3>
+
+<p>To save changes made when they’re not in a state to commit them to a repository. This will store the work and give a clean working directory. For instance, when working on a new feature that’s not complete, but an urgent bug needs attention.</p>
+
+<p>Usage:</p>
+
+<pre class="sample"><code># Store current work with untracked files
+$ git stash -u
+
+# Bring stashed work back to the working directory
+$ git stash pop</code></pre>
+
+<p>In Practice:</p>
+
+<pre class="sample"><code># Store current work
+$ git stash -u
+Saved working directory and index state WIP on SecretTesting: 4c0f37c Adding new file to branch
+HEAD is now at 4c0f37c Adding new file to branch
+
+# Bring stashed work back to the working directory
+$ git stash pop
+On branch SecretTesting
+Your branch and 'origin/SecretTesting' have diverged,
+and have 1 and 1 different commit each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+        <span class="redtext">modified:   index.html</span>
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (3561897724c1f448ae001edf3ef57415778755ec)</code></pre>
+
+<h3 id="git-log">git log</h3>
+
+<p>To show the chronological commit history for a repository. This helps give context and history for a repository. <em>git log</em> is available immediately on a recently cloned repository to see history.</p>
+
+<p>Usage:</p>
+
+<pre class="sample"><code># Show entire git log
+$ git log
+
+# Show git log with date pameters
+$ git log --&lt;after/before/since/until&gt;=&lt;date&gt;
+
+# Show git log based on commit author
+$ git log --&lt;author&gt;="Author Name"
+</code></pre>
+
+<p>In Practice:</p>
+
+<pre class="sample"><code># Show entire git log
+$ git log
+<span class="yellowtext">commit 4c0f37c711623d20fc60b9cbcf393d515945952f</span>
+Author: Brian Kerr &lt;my@emailaddress.com&gt;
+Date:   Tue Oct 25 17:46:11 2016 -0500
+
+    Updating the wording of the homepage footer 
+    
+<span class="yellowtext">commit 0254c3da3add4ebe9d7e1f2e76f015a209e1ef67</span>
+Author: Ashley Harpp &lt;my@emailaddress.com&gt;
+Date:   Wed Oct 19 16:27:27 2016 -0500
+
+    My first commit message
+
+# Show git log with date pameters
+$ git log --before="Oct 20"
+<span class="yellowtext">commit 0254c3da3add4ebe9d7e1f2e76f015a209e1ef67</span>
+Author: Ashley Harpp &lt;my@emailaddress.com&gt;
+Date:   Wed Oct 19 16:27:27 2016 -0500
+
+    My first commit message
+
+# Show git log based on commit author
+$ git log --author="Brian Kerr"
+<span class="yellowtext">commit 4c0f37c711623d20fc60b9cbcf393d515945952f</span>
+Author: Brian Kerr &lt;my@emailaddress.com&gt;
+Date:   Tue Oct 25 17:46:11 2016 -0500
+
+    Updating the wording of the homepage footer </code></pre>
+
+<h3 id="git-rm">git rm</h3>
+
+<p>Remove files or directories from the working index (staging area). With <em>git rm</em>, there are two options to keep in mind: force and cached. Running the command with force deletes the file. The cached command removes the file from the working index. When removing an entire directory, a recursive command is necessary.</p>
+
+<p>Usage:</p>
+
+<pre class="sample"><code># To remove a file from the working index (cached):
+$ git rm --cached &lt;file name&gt;
+
+# To delete a file (force):
+$ git rm -f &lt;file name&gt;
+
+# To remove an entire directory from the working index (cached):
+$ git rm -r --cached &lt;directory name&gt;
+
+# To delete an entire directory (force):
+$ git rm -r -f &lt;file name&gt;</code></pre>
+
+<p>In Practice:</p>
+
+<pre class="sample"><code># To remove a file from the working index:
+$ git rm --cached css/style.css
+rm 'css/style.css'
+
+# To delete a file (force):
+$ git rm -f css/style.css
+rm 'css/style.css'
+
+# To remove an entire directory from the working index (cached):
+$ git rm -r --cached css/
+rm 'css/style.css'
+rm 'css/style.min.css'
+
+# To delete an entire directory (force):
+$ git rm -r -f css/
+rm 'css/style.css'
+rm 'css/style.min.css'
+</code></pre>
+
+<h2 id="more-git-resources">More Git Resources</h2>
+
+<p>Ready to learn more about Git and it’s different commands? There are countless articles and sites on Git, here are some of our favorites:</p>
+
+<ul>
+	<li><a href="https://git-scm.com/">The official Git site</a></li>
+	<li><a href="http://gitref.org/">Git reference</a></li>
+	<li><a href="https://wiki.spheredev.org/index.php/Git_for_the_lazy">Git for the lazy</a></li>
+	<li><a href="https://git-scm.com/book/en/v2">Pro Git (Book)</a></li>
+	<li><a href="http://blog.beanstalkapp.com/post/134929320564/writing-meaningful-commit-messages">Writing meaningful commit messages</a></li>
+	<li><a href="https://codewords.recurse.com/issues/two/git-from-the-inside-out">Git from the inside out</a></li>
+</ul>
+
+				<footer>
+					<div itemprop="author" itemscope="" itemtype="http://schema.org/Person" id="author">
+						<p>
+							<img itemprop="image" src="./Common Git Commands – Learn how to use Git._files/bkerr.png" alt="Brian Kerr">
+							<a href="https://twitter.com/thebriankerr" itemprop="url" rel="author"><span itemprop="name">Brian Kerr</span></a> is part of the <span itemprop="jobTitle">Customer Success team</span> at <span itemprop="worksFor">Wildbit</span> from <span itemprop="homeLocation">Iowa City, IA</span>.
+						</p>
+					</div>
+
+					<div id="back">
+						<a href="http://guides.beanstalkapp.com/">Back to Guides</a>
+					</div>
+
+					<div class="share">
+						<div class="fb-like fb_iframe_widget" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;container_width=60&amp;href=http%3A%2F%2Fguides.beanstalkapp.com%2Fversion-control%2Fcommon-git-commands.html&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=90"><span style="vertical-align: bottom; width: 66px; height: 20px;"><iframe name="f19295704b00ca" width="90px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" title="fb:like Facebook Social Plugin" src="./Common Git Commands – Learn how to use Git._files/like(1).html" style="border: none; visibility: visible; width: 66px; height: 20px;" __idm_frm__="2125" class=""></iframe></span></div>
+						<iframe id="twitter-widget-1" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 60px; height: 20px;" title="Twitter Tweet Button" src="./Common Git Commands – Learn how to use Git._files/tweet_button.68dbfddc56b3f0522044700c1abcd1dc.en(1).html" __idm_frm__="2120"></iframe>
+					</div>
+				</footer>
+
+				</div>
+			</div></article>
+
+		</div>
+	</section>
+
+</div>
+
+<section id="support">
+	<div class="wrapper">
+	<div class="container">
+
+		<section id="bs-signup">
+			<a href="http://beanstalkapp.com/">
+				<h1>Try Beanstalk now!</h1>
+				<p>Signup and get started in minutes.</p>
+			</a>
+		</section>
+
+		<section id="bs-support">
+			<h1>Still have some questions?</h1>
+			<ul>
+				<li id="s-email">
+					<a href="mailto:support@beanstalkapp.com">Send us an email</a>
+				</li>
+				<li id="s-kb">
+					<a href="http://support.beanstalkapp.com/">Read our help articles</a>
+				</li>
+			</ul>
+		</section>
+
+	</div>
+	</div>
+</section>
+
+<footer>
+	
+
+	<ul>
+		<li><a href="http://beanstalkapp.com/requests/new">Contact</a></li>
+		<li><a href="http://blog.beanstalkapp.com/">Blog</a></li>
+		<li><a href="http://twitter.com/beanstalkapp">Twitter</a></li>
+		<li><a href="http://beanstalkapp.com/security">Security</a></li>
+		<li><a href="http://wildbit.com/privacy-policy">Privacy Policy</a></li>
+		<li><a href="http://beanstalkapp.com/terms-of-service">Terms of Service</a></li>
+	</ul>
+	<p>© <a href="http://wildbit.com/">Wildbit, <abbr>LLC</abbr></a>, 2007-2019. All rights reserved. The Beanstalk logo and name are trademarks of Wildbit, <abbr>LLC</abbr>.</p>
+
+</footer>
+
+<!-- JS -->
+<script src="./Common Git Commands – Learn how to use Git._files/jquery.min.js.download"></script>
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","295344307493628");fbq("track","PageView");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=295344307493628&amp;ev=PageView&amp;noscript=1"></noscript>
+
+<script src="./Common Git Commands – Learn how to use Git._files/bundle.min.js.download"></script>
+
+<!-- Tweet -->
+<script type="text/javascript" src="./Common Git Commands – Learn how to use Git._files/widgets.js.download"></script>
+
+<!-- Facebook -->
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Common Git Commands – Learn how to use Git._files/vy-MhgbfL4v.html" style="border: none;" __idm_frm__="2121"></iframe></div><div></div></div></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="./Common Git Commands – Learn how to use Git._files/widget_iframe.68dbfddc56b3f0522044700c1abcd1dc.html" title="Twitter settings iframe" style="display: none;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" __idm_frm__="2122" src="./Common Git Commands – Learn how to use Git._files/saved_resource.html"></iframe></body></html>
